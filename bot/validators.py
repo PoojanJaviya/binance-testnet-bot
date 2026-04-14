@@ -14,8 +14,6 @@ def validate_quantity(quantity: float) -> float:
     
 def validate_price(order_type: str, price: Optional[float]) -> float | None:
     order_type = order_type.upper()
-    if order_type not in ['MARKET','LIMIT']:
-        raise ValueError(...)
     if order_type == "MARKET":
         return None
     elif order_type == "LIMIT":
@@ -24,3 +22,10 @@ def validate_price(order_type: str, price: Optional[float]) -> float | None:
         else:
             raise ValueError(...)
         
+def validate_order_type(order_type : str) -> str:
+    order_type = order_type.upper()
+
+    if order_type not in ['MARKET', 'LIMIT']:
+        raise ValueError(...)
+    
+    return order_type
