@@ -1,3 +1,5 @@
+from typing import Optional
+
 def validate_side(side: str) -> str:
     side_upper = side.upper()
     if side_upper not in ['BUY', 'SELL']:
@@ -10,7 +12,7 @@ def validate_quantity(quantity: float) -> float:
     else:
         raise ValueError(...)
     
-def validate_price(price: float, order_type: str) -> float | None:
+def validate_price(order_type: str, price: Optional[float]) -> float | None:
     order_type = order_type.upper()
     if order_type not in ['MARKET','LIMIT']:
         raise ValueError(...)
