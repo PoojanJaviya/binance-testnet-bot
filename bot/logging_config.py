@@ -1,16 +1,15 @@
 import logging
 import sys
 
-
 def setup_logger():
 
     logger = logging.getLogger("binance_bot")
     logger.setLevel(logging.INFO)
 
-    logging_format = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    logging_format = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")  #Response format
 
-    file_handler = logging.FileHandler("trading_bot.log")
-    console_handler = logging.StreamHandler(sys.stdout)
+    file_handler = logging.FileHandler("trading_bot.log")  #To add in logging file
+    console_handler = logging.StreamHandler(sys.stdout)  #To print in terminal
 
     file_handler.setFormatter(logging_format)
     console_handler.setFormatter(logging_format)

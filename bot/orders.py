@@ -3,6 +3,7 @@ from bot.validators import validate_price, validate_quantity, validate_side, val
 from bot.client import BinanceFuturesClient
 from bot.logging_config import logger
 
+#main function which is used to place order
 def place_order(
       symbol : str,
       side : str,
@@ -24,6 +25,7 @@ def place_order(
         else:
             response = api_client.futures_create_order(symbol=symbol, side=side, type=order_type, quantity=quantity, price=price, timeInForce="GTC")
         
+        #required responses
         logger.info("Order Placed Successfully!")
         logger.info(f"OrderID : {response["orderId"]}")
         logger.info(f"Status : {response["status"]}")

@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from binance import Client
 
+#The class which is gonna get used to establish connection
 class BinanceFuturesClient:
     def __init__(self):
 
