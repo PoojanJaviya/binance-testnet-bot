@@ -23,13 +23,7 @@ def place_order(
             response = api_client.futures_create_order(symbol=symbol, side=side, type=order_type, quantity=quantity)
         else:
             response = api_client.futures_create_order(symbol=symbol, side=side, type=order_type, quantity=quantity, price=price, timeInForce="GTC")
-        #orderId, status, executedQty, avgPrice
-        # print("Order Placed Successfully!")
-        # print(f"OrderID : {response["orderId"]}")
-        # print(f"Status : {response["status"]}")
-        # print(f"executed Quantity : {response["executedQty"]}")
-        # print(f"Average Price : {response["avgPrice"]}")
-
+        
         logger.info("Order Placed Successfully!")
         logger.info(f"OrderID : {response["orderId"]}")
         logger.info(f"Status : {response["status"]}")
@@ -40,4 +34,3 @@ def place_order(
         logger.error(f"Failed to place order : {e}")
     
     api_client.close_connection()
-place_order("BTCUSDT", "BUY", "market", 0.002)
