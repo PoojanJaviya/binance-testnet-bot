@@ -1,6 +1,7 @@
 from typing import Optional
 from bot.validators import validate_price, validate_quantity, validate_side, validate_order_type
 from bot.client import BinanceFuturesClient
+from bot.logging_config import logger
 
 def place_order(
       symbol : str,
@@ -23,14 +24,20 @@ def place_order(
         else:
             response = api_client.futures_create_order(symbol=symbol, side=side, type=order_type, quantity=quantity, price=price, timeInForce="GTC")
         #orderId, status, executedQty, avgPrice
-        print("Order Placed Successfully!")
-        print(f"OrderID : {response["orderId"]}")
-        print(f"Status : {response["status"]}")
-        print(f"executed Quantity : {response["executedQty"]}")
-        print(f"Average Price : {response["avgPrice"]}")
+        # print("Order Placed Successfully!")
+        # print(f"OrderID : {response["orderId"]}")
+        # print(f"Status : {response["status"]}")
+        # print(f"executed Quantity : {response["executedQty"]}")
+        # print(f"Average Price : {response["avgPrice"]}")
+
+        logger.info("Order Placed Successfully!")
+        logger.info(f"OrderID : {response["orderId"]}")
+        logger.info(f"Status : {response["status"]}")
+        logger.info(f"executed Quantity : {response["executedQty"]}")
+        logger.info(f"Average Price : {response["avgPrice"]}")
 
     except Exception as e:
-        print(e)
+        logger.error(f"Failed to place order : {e}")
     
     api_client.close_connection()
 place_order("BTCUSDT", "BUY", "market", 0.002)
