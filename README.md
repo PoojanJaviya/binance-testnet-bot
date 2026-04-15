@@ -21,7 +21,7 @@ This project was built as a backend engineering assignment for Primetrade.ai, fo
 
 **1. Clone the repository:**
 ```bash
-git clone [https://github.com/PoojanJaviya/binance-testnet-bot.git](https://github.com/PoojanJaviya/binance-testnet-bot.git)
+git clone https://github.com/PoojanJaviya/binance-testnet-bot.git
 cd binance-testnet-bot
 ```
 
